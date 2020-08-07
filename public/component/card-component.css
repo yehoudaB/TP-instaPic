@@ -1,0 +1,45 @@
+.card{
+    border: 1px solid gray;
+    border-radius: 2%;
+    height: 100%;
+}
+
+
+.imgDescription{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.likeBtn{
+    font-size: 1.6em;
+    margin-right: 1em;
+    cursor: pointer;
+    color: grey;
+}
+
+
+img{
+    margin-top: 0.7% ;
+    width: 100%; /* or any custom size */
+    height: 66%; 
+    object-fit: contain;
+}
+
+h3{
+    margin-left: 1em;
+}
+.tags{
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    height: 1.5em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.tag{
+    background-color: rgb(26, 214, 36);
+    padding: 0.2em;
+    border: 0.2em solid white;
+    text-align: center;
+}
