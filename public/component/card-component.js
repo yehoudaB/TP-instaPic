@@ -4,6 +4,7 @@ export default class CardComponent extends HTMLElement{
         this._root = this.attachShadow({mode:'open'})
     }
 
+    likeBtn;
     
     connectedCallback(){
         
@@ -30,28 +31,33 @@ export default class CardComponent extends HTMLElement{
                                     </div>
                                 </div>`
                             
-        const likeBtn = this._root.querySelector('.likeBtn');
-        likeBtn.addEventListener('click',this.likeAnImage);
+        this.likeBtn  = this._root.querySelector('.likeBtn');
         
+        this.likeBtn.addEventListener('click',this.likeAnImage );
+
+        this.updateLikeBtn()
+        
+
     }
 
     likeAnImage(){    
+        this.dispatchEvent(
+            new CustomEvent('clickOnLikeB'), {
+                detail: { cliked: this.post },
+        });
         if(this.style.color ==="red"){
             this.style.color ="grey"
-            this.dispatchEvent(
-                new CustomEvent('disliked'), {
-                    detail: { liked: this.post},
-            });
         } else{
             this.style.color ="red"
-            this.dispatchEvent(
-                new CustomEvent('liked'), {
-                    detail: { liked: this.post },
-            });
         }
+    }
 
-
-                
-        
+    updateLikeBtn(){
+        const storageLikedPost =sessionStorage.getItem('likedPosts')
+        if(storageLikedPost.includes(this.shadowRoot.querySelector('.card').getAttribute('id'))){
+            this.likeBtn.style.color = 'red'
+        }else {
+            this.likeBtn.style.color = 'grey'
+        }
     }
 }

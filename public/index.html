@@ -10,11 +10,20 @@
 <body>
     <header>
         <div class="logo"><h1>InstaPic</h1></div>
-        <div class="like">&#10084; <span id="counter">0</span> </div>
+        <div class="like" id="btnLikedPosts">&#10084; <span id="counter">0</span> </div>
         <div class="search">
             <input type="text" placeholder="Rechercher une image" name="search" id="search">
         </div>
     </header>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="titlesPostsLiked"></div>
+    </div>
+</div>
     <section id="cards">
     </section>
 </body>
